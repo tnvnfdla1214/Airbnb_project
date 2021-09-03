@@ -1,8 +1,5 @@
 
 # 에어비엔비 프로젝트
-
-사용 언어 : <img src="https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=Kotlin&logoColor=white">
-
 ### :wrench: 기능설명
 
 + Naver Map APi를 이용하여 지도를 띄운다.

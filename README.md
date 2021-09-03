@@ -10,7 +10,7 @@
 + Mock API에서 예약가능 숙소 목록을 받아와서 지도에 표시한다.
 + BottomSheetView를 활용하여 예약 가능 숙소목록을 볼 수 있다.
 + ViewPager2를 활용하여 현재 보고 있는 숙소로 지도가 움직이며 간단한 섬네일 정보를 볼 수 있다.
-+ 숙소 버튼을 눌러 숫소의 장보를 앱 외부로 공유 가능하다.
++ 숙소 버튼을 눌러 숙소의 장보를 앱 외부로 공유 가능하다.
 
 ***
 
@@ -26,7 +26,7 @@
 2. Map의 기본 세팅은 **mapView.getMapAsync** 를 통해  OnMapReadyCallback의 인터페이스를 받아와 기본 정보를 세팅하였습니다.
 
 + 기본세팅
-  + 초기 주소값 -> 감남역
+  + 초기 주소값 -> 강남역
   +  권한 코드 불러오기(내 위치를 불러오기) -> 안드로이드 버젼이 업데이트 후 팝업을 띄워 물어봐야 한다.
   +  retrofit 정보를 불러오는 함수
 
@@ -40,15 +40,27 @@
 2. 안드로이드를 돌아와서 해당 정보를 받아올 수 있게 세팅 합니다.
 + Housedto.java : items를 리스트 형으로 받아올 수 있게 해주는 모델
 + HouseModle.java : item에 담겨 있는 정보들을 설정해 줍니다.
-+ 
-+ 
++ HouseService.java : api정보(json형식)를 불러와서 해당정보를 불러온다.
++ MainActivity 에서 getHouseListFromAPI 함수 : 해당 정보를 불러와 마커를 찍어주고 viewPagerAdapter 에 정보를 넘겨주는 함수
 
 ####  BottomSheetView를 활용하여 예약 가능 숙소목록 보기
 1. 올렸다 내렸다 해야하기 위해 Coordinatelayout을 이용하였습니다. (Coordinatelayout는 Framelayout의 진화형)
 2. 리스트들을 볼 수 있어야 하므로 하단은 Recyclerview로 세팅하였습니다.
 + bottom_sheet.xml : view의 기본 세팅
-+ top_radius_white_background.xml : 상단 백그라운드의 라운드를 깍아주고 배경색을 흰색으로 지정
++ top_radius_white_background.xml : 상단 백그라운드의 라운드를 깎아주고 배경색을 흰색으로 지정
++ HouseListAdapter.java : 리사이클러뷰에 보여질 아이템 어뎁터
++ item_house.xml : 아이템 기본 xml
 
+
+#### ViewPager2를 활용하여 현재 보고 있는 숙소로 지도가 움직이며 간단한 섬네일 정보보기
+기본적으로 ViewModel은 이전 버젼이고 ViewPager2이므로 일단 이걸 선택했다.(뭐 JetPack 사용해봐야 하기도 했고....:confused:)
+( ViewPager는 PagerAdapter 기반으로 구성되어있는데 스크롤을 진행할 때 마다 instantiateItem() 와 destroyItem() 메서드가 호출되기 때문에 스크롤 할 때 버벅거리는 현상이 나타나서 라던데
+흐음....:neutral_face: 조치원 수호대를 ViewPager 를 써봤는데 진짜 사알짝 멈추는 느낌이 있긴 했는데 그건가..??)
+
++ item_house_detail_for_viewpager.xml : viewPager의 기본 xml
++ HouseListAdapter.java : viewpager의 기본 세팅 
++ MainActivity 에서 getHouseListFromAPI 함수 : 해당 정보를 불러와 마커를 찍어주고 viewPagerAdapter 에 정보를 넘겨주는 함수
++ MainActivity의 viewPager.registerOnPageChangeCallback : 뷰페이져를 바꿀떄마다 해당정보로 찍혀있는 마커로 카메라가 이동된다.
 
 
 

@@ -62,7 +62,11 @@
 + MainActivity 에서 getHouseListFromAPI 함수 : 해당 정보를 불러와 마커를 찍어주고 viewPagerAdapter 에 정보를 넘겨주는 함수
 + MainActivity의 viewPager.registerOnPageChangeCallback : 뷰페이져를 바꿀떄마다 해당정보로 찍혀있는 마커로 카메라가 이동된다.
 
+***
 
+### :paperclip: 소감
+먼저 코틀린을 이용한 프로젝트이므로 (물론 예제 코드를 보고 공부한 거지만 ㅎ :kissing_heart:) 다 아는 내용을 코틀린으로 해보니까 어려웠다.
 
+그치만 나름 자바보다 코틀린이 더 쉬운 언어인건 확실하고 SPring에서 제공하는 lombok과 비슷한 느낌이였다.
 
-
+또한 이번 프로젝트에서 값지게 알아낸것이 retrofit 활용에 대해 정확히 어떻게 써야 하는지 알게 되서 좋았다. ㅎ

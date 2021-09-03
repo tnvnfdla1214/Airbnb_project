@@ -6,7 +6,7 @@
 ### :wrench: 기능설명
 
 + Naver Map APi를 이용하여 지도를 띄운다.
-+ 내 위치를 받아와 화면을 이동해줍니다.
++ 내 위치를 받아와 화면을 이동해준다.
 + Mock API에서 예약가능 숙소 목록을 받아와서 지도에 표시한다.
 + BottomSheetView를 활용하여 예약 가능 숙소목록을 볼 수 있다.
 + ViewPager2를 활용하여 현재 보고 있는 숙소로 지도가 움직이며 간단한 섬네일 정보를 볼 수 있다.
@@ -16,5 +16,41 @@
 
 ### :lollipop: 완성 화면
 
-<img src = "https://user-images.githubusercontent.com/48902047/131960264-c355d2aa-df56-4b62-b54f-216c684aded5.jpg" width="20%" height="20%">
+<img src = "https://user-images.githubusercontent.com/48902047/131960264-c355d2aa-df56-4b62-b54f-216c684aded5.jpg" width="20%" height="20%">   <img src = "https://user-images.githubusercontent.com/48902047/131966752-f643302f-67e8-45db-b0cd-ba03cc813b75.jpg" width="20%" height="20%">   <img src = "https://user-images.githubusercontent.com/48902047/131966853-1d287878-c9c0-4942-8395-dec79bc516db.jpg" width="20%" height="20%">   <img src = "https://user-images.githubusercontent.com/48902047/131966896-57e04181-8b45-4b1a-9022-0d5295a7909d.jpg" width="20%" height="20%">
+
+***
+####  Naver Map APi 활용
+
+1. 기본 구성으로 [NaverCloudPlatfrom](https://www.ncloud.com/)에서 신청을 하여 clientID를 받아와 라이브러리와 몇가지 추가를 통해 메인 화면에 구성하였습니다.
+
+2. Map의 기본 세팅은 **mapView.getMapAsync** 를 통해  OnMapReadyCallback의 인터페이스를 받아와 기본 정보를 세팅하였습니다.
+
++ 기본세팅
+  + 초기 주소값 -> 감남역
+  +  권한 코드 불러오기(내 위치를 불러오기) -> 안드로이드 버젼이 업데이트 후 팝업을 띄워 물어봐야 한다.
+  +  retrofit 정보를 불러오는 함수
+
+####  Mock API를 서버에 업로드 후 retrofit으로 정보 가져오기
+
+1. house.json이라는 파일을 만들어 해당정보를 Mock사이트에 올려 주소를 받아옵니다.
++ 강남역에서 아무곳이나 찍어 위도경도를 받은 후 작성하였습니다.
++ 사진은 picsum이란 사이트를 이용하여 더미 사진을 불러왔습니다.
++ 해당 만든 json 형식의 정보를 서버에서 내려준 것 처럼 가져 올 수 있다. [만든사이트](http://run.mocky.io/v3/511c37d3-79c1-455f-9efb-98b5d594e640)
+
+2. 안드로이드를 돌아와서 해당 정보를 받아올 수 있게 세팅 합니다.
++ Housedto.java : items를 리스트 형으로 받아올 수 있게 해주는 모델
++ HouseModle.java : item에 담겨 있는 정보들을 설정해 줍니다.
++ 
++ 
+
+####  BottomSheetView를 활용하여 예약 가능 숙소목록 보기
+1. 올렸다 내렸다 해야하기 위해 Coordinatelayout을 이용하였습니다. (Coordinatelayout는 Framelayout의 진화형)
+2. 리스트들을 볼 수 있어야 하므로 하단은 Recyclerview로 세팅하였습니다.
++ bottom_sheet.xml : view의 기본 세팅
++ top_radius_white_background.xml : 상단 백그라운드의 라운드를 깍아주고 배경색을 흰색으로 지정
+
+
+
+
+
 
